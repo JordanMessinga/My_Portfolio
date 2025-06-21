@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MESSINGA JEAN JORDAN NOE | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3b82f6", secondary: "#6366f1" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      html {
+          scroll-behavior: smooth;
+      }
+      body {
+          font-family: 'Inter', sans-serif;
+      }
+      .name-title {
+          font-family: 'Poppins', sans-serif;
+      }
+      .progress-bar {
+          position: relative;
+          height: 8px;
+          border-radius: 4px;
+          background-color: #e5e7eb;
+          overflow: hidden;
+      }
+      .progress-bar-fill {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          background-color: #3b82f6;
+          transition: width 1s ease-in-out;
+      }
+      .project-card:hover .project-overlay {
+          opacity: 1;
+      }
+      .project-card:hover img {
+          transform: scale(1.05);
+      }
+      .nav-link {
+          position: relative;
+      }
+      .nav-link::after {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 2px;
+          bottom: -4px;
+          left: 0;
+          background-color: #3b82f6;
+          transition: width 0.3s ease;
+      }
+      .nav-link:hover::after, .nav-link.active::after {
+          width: 100%;
+      }
+      .hero-section {
+          background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 0.7) 100%), url('https://readdy.ai/api/search-image?query=abstract%2520geometric%2520pattern%2520with%2520blue%2520and%2520white%2520colors%252C%2520modern%2520minimal%2520design%252C%2520clean%2520lines%252C%2520subtle%2520technology%2520theme%252C%2520professional%2520background%2520for%2520portfolio%252C%2520soft%2520lighting%252C%2520high%2520resolution%252C%2520elegant%2520composition&width=1920&height=1080&seq=hero1&orientation=landscape');
+          background-size: cover;
+          background-position: center;
+      }
+      .about-section {
+          background-color: #f9fafb;
+      }
+      .skill-icon {
+          transition: transform 0.3s ease;
+      }
+      .skill-card:hover .skill-icon {
+          transform: translateY(-5px);
+      }
+      .contact-input {
+          transition: border-color 0.3s ease;
+      }
+      .contact-input:focus {
+          border-color: #3b82f6;
+          outline: none;
+      }
+      .social-icon {
+          transition: transform 0.3s ease, color 0.3s ease;
+      }
+      .social-icon:hover {
+          transform: translateY(-3px);
+          color: #3b82f6;
+      }
+      .fade-in {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      .fade-in.visible {
+          opacity: 1;
+          transform: translateY(0);
+      }
+      .project-categories button {
+          transition: all 0.3s ease;
+      }
+      .project-categories button.active {
+          background-color: #3b82f6;
+          color: white;
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- Header -->
+    <header
+      class="fixed w-full z-50 bg-white bg-opacity-95 shadow-sm transition-all duration-300"
+    >
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="#home" class="text-gray-900 font-bold text-xl name-title"
+          >MESSINGA JEAN JORDAN NOE</a
+        >
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-8">
+          <a
+            href="#home"
+            class="nav-link text-gray-800 hover:text-primary font-medium active"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="nav-link text-gray-800 hover:text-primary font-medium"
+            >About</a
+          >
+          <a
+            href="#projects"
+            class="nav-link text-gray-800 hover:text-primary font-medium"
+            >Projects</a
+          >
+          <a
+            href="#skills"
+            class="nav-link text-gray-800 hover:text-primary font-medium"
+            >Skills</a
+          >
+          <a
+            href="#contact"
+            class="nav-link text-gray-800 hover:text-primary font-medium"
+            >Contact</a
+          >
+        </nav>
+
+        <!-- Mobile Navigation Toggle -->
+        <button
+          class="md:hidden w-10 h-10 flex items-center justify-center text-gray-800"
+          id="mobile-menu-button"
+        >
+          <i class="ri-menu-line ri-2x"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white shadow-lg absolute w-full"
+      >
+        <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+          <a
+            href="#home"
+            class="text-gray-800 hover:text-primary font-medium py-2"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="text-gray-800 hover:text-primary font-medium py-2"
+            >About</a
+          >
+          <a
+            href="#projects"
+            class="text-gray-800 hover:text-primary font-medium py-2"
+            >Projects</a
+          >
+          <a
+            href="#skills"
+            class="text-gray-800 hover:text-primary font-medium py-2"
+            >Skills</a
+          >
+          <a
+            href="#contact"
+            class="text-gray-800 hover:text-primary font-medium py-2"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section min-h-screen flex items-center">
+      <div class="container mx-auto px-6 py-20 md:py-0">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="fade-in">
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 name-title mb-4"
+            >
+              Hello, I'm <span class="text-primary">Jordan</span>
+            </h1>
+            <h2 class="text-xl md:text-2xl text-gray-700 mb-6">
+              Computer Science Engineering Student
+            </h2>
+            <p class="text-gray-600 text-lg mb-8 max-w-lg">
+              Passionate about creating innovative solutions through code.
+              Currently studying at the National Advanced School of Engineering
+              of Yaounde, specializing in software development and system
+              design.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="#contact"
+                class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-blue-600 transition-colors whitespace-nowrap"
+              >
+                Contact Me
+              </a>
+              <a
+                href="#"
+                class="border border-gray-300 text-gray-800 px-6 py-3 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap flex items-center gap-2"
+              >
+                <i class="ri-download-line"></i> Download Resume
+              </a>
+            </div>
+          </div>
+          <div class="hidden md:block">
+            <img
+              src="moi4.jpg"
+              alt="MESSINGA JEAN JORDAN NOE"
+              class="w-full h-auto rounded-lg shadow-xl object-cover object-top"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-20">
+      <div class="container mx-auto px-6">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16 fade-in"
+        >
+          About Me
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="fade-in">
+            <img
+              src="moi5.jpg"
+              alt="MESSINGA JEAN JORDAN NOE working"
+              class="w-full h-auto rounded-lg shadow-lg object-cover object-top"
+            />
+          </div>
+
+          <div class="fade-in">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">Who I Am</h3>
+            <p class="text-gray-700 mb-6 leading-relaxed">
+              I'm a dedicated Computer Science Engineering student at the
+              National Advanced School of Engineering of Yaounde, passionate
+              about solving complex problems through innovative technology
+              solutions.
+            </p>
+
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">
+              My Journey
+            </h3>
+            <p class="text-gray-700 mb-6 leading-relaxed">
+              My journey in technology began with a curiosity about how digital
+              systems work. This curiosity evolved into a passion for
+              programming and system design, leading me to pursue formal
+              education in Computer Science Engineering.
+            </p>
+
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">Education</h3>
+            <div class="mb-6">
+              <div class="flex items-start mb-2">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mr-4"
+                >
+                  <i class="ri-building-4-line text-primary ri-lg"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900">
+                    National Advanced School of Engineering of Yaounde
+                  </h4>
+                  <p class="text-gray-600">
+                    Bachelor's in Computer Science Engineering
+                  </p>
+                  <p class="text-gray-500">2021 - Present</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-4 mt-8">
+              <a
+                href="#projects"
+                class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-blue-600 transition-colors whitespace-nowrap"
+              >
+                View My Work
+              </a>
+              <a
+                href="#contact"
+                class="border border-gray-300 text-gray-800 px-6 py-3 !rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap"
+              >
+                Get In Touch
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-6 fade-in"
+        >
+          My Projects
+        </h2>
+        <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12 fade-in">
+          Here are some of the projects I've worked on during my academic
+          journey and personal exploration.
+        </p>
+
+        <!-- Project Categories -->
+        <div
+          class="project-categories flex flex-wrap justify-center gap-4 mb-12 fade-in"
+        >
+          <button
+            class="px-5 py-2 !rounded-button border border-gray-300 text-gray-700 hover:bg-gray-50 active whitespace-nowrap"
+          >
+            All Projects
+          </button>
+          <button
+            class="px-5 py-2 !rounded-button border border-gray-300 text-gray-700 hover:bg-gray-50 whitespace-nowrap"
+          >
+            Web Development
+          </button>
+          <button
+            class="px-5 py-2 !rounded-button border border-gray-300 text-gray-700 hover:bg-gray-50 whitespace-nowrap"
+          >
+            Mobile Apps
+          </button>
+          <button
+            class="px-5 py-2 !rounded-button border border-gray-300 text-gray-700 hover:bg-gray-50 whitespace-nowrap"
+          >
+            Machine Learning
+          </button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div
+            class="project-card rounded-lg overflow-hidden shadow-lg bg-white fade-in"
+          >
+            <div class="relative overflow-hidden h-60">
+              <img
+                src="https://readdy.ai/api/search-image?query=modern%2520e-commerce%2520website%2520interface%2520on%2520laptop%2520screen%252C%2520professional%2520web%2520design%252C%2520clean%2520layout%252C%2520shopping%2520cart%2520functionality%252C%2520product%2520grid%2520display%252C%2520high%2520quality%2520rendering%252C%2520UI%252FUX%2520design%252C%2520professional%2520lighting%252C%2520white%2520background&width=600&height=400&seq=project1&orientation=landscape"
+                alt="E-commerce Platform"
+                class="w-full h-full object-cover object-top transition-transform duration-500"
+              />
+              <div
+                class="project-overlay absolute inset-0 bg-primary bg-opacity-80 flex flex-col justify-center items-center p-6 opacity-0 transition-opacity duration-300"
+              >
+                <h4 class="text-white text-xl font-semibold mb-2">
+                  E-commerce Platform
+                </h4>
+                <p class="text-white text-center mb-4">
+                  A full-featured online shopping platform with secure payment
+                  integration
+                </p>
+                <a
+                  href="#"
+                  class="bg-white text-primary px-4 py-2 !rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap"
+                  >View Project</a
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                E-commerce Platform
+              </h3>
+              <p class="text-gray-600 mb-4">
+                A responsive online store with user authentication, product
+                catalog, and payment processing.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >React</span
+                >
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >Node.js</span
+                >
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >MongoDB</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div
+            class="project-card rounded-lg overflow-hidden shadow-lg bg-white fade-in"
+          >
+            <div class="relative overflow-hidden h-60">
+              <img
+                src="https://readdy.ai/api/search-image?query=mobile%2520app%2520interface%2520for%2520health%2520tracking%2520displayed%2520on%2520smartphone%252C%2520fitness%2520data%2520visualization%252C%2520step%2520counter%252C%2520heart%2520rate%2520monitor%252C%2520clean%2520UI%2520design%252C%2520blue%2520and%2520white%2520color%2520scheme%252C%2520professional%2520app%2520design%252C%2520high%2520quality%2520rendering&width=600&height=400&seq=project2&orientation=landscape"
+                alt="Health Tracking App"
+                class="w-full h-full object-cover object-top transition-transform duration-500"
+              />
+              <div
+                class="project-overlay absolute inset-0 bg-primary bg-opacity-80 flex flex-col justify-center items-center p-6 opacity-0 transition-opacity duration-300"
+              >
+                <h4 class="text-white text-xl font-semibold mb-2">
+                  Health Tracking App
+                </h4>
+                <p class="text-white text-center mb-4">
+                  Mobile application for monitoring health metrics and fitness
+                  goals
+                </p>
+                <a
+                  href="#"
+                  class="bg-white text-primary px-4 py-2 !rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap"
+                  >View Project</a
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                Health Tracking App
+              </h3>
+              <p class="text-gray-600 mb-4">
+                A mobile application that helps users track their health
+                metrics, set fitness goals, and monitor progress.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >Flutter</span
+                >
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >Firebase</span
+                >
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >Dart</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div
+            class="project-card rounded-lg overflow-hidden shadow-lg bg-white fade-in"
+          >
+            <div class="relative overflow-hidden h-60">
+              <img
+                src="https://readdy.ai/api/search-image?query=data%2520visualization%2520dashboard%2520with%2520machine%2520learning%2520predictions%252C%2520charts%2520and%2520graphs%2520showing%2520trend%2520analysis%252C%2520professional%2520business%2520intelligence%2520interface%252C%2520clean%2520design%252C%2520blue%2520and%2520white%2520theme%252C%2520high%2520quality%2520rendering%252C%2520modern%2520UI&width=600&height=400&seq=project3&orientation=landscape"
+                alt="Data Analysis Dashboard"
+                class="w-full h-full object-cover object-top transition-transform duration-500"
+              />
+              <div
+                class="project-overlay absolute inset-0 bg-primary bg-opacity-80 flex flex-col justify-center items-center p-6 opacity-0 transition-opacity duration-300"
+              >
+                <h4 class="text-white text-xl font-semibold mb-2">
+                  Data Analysis Dashboard
+                </h4>
+                <p class="text-white text-center mb-4">
+                  Interactive visualization platform for complex data analysis
+                </p>
+                <a
+                  href="#"
+                  class="bg-white text-primary px-4 py-2 !rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap"
+                  >View Project</a
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                Data Analysis Dashboard
+              </h3>
+              <p class="text-gray-600 mb-4">
+                An interactive dashboard for visualizing and analyzing complex
+                datasets with predictive analytics.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >Python</span
+                >
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >TensorFlow</span
+                >
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >D3.js</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div
+            class="project-card rounded-lg overflow-hidden shadow-lg bg-white fade-in"
+          >
+            <div class="relative overflow-hidden h-60">
+              <img
+                src="https://readdy.ai/api/search-image?query=smart%2520home%2520automation%2520system%2520interface%252C%2520IoT%2520device%2520control%2520panel%252C%2520connected%2520home%2520devices%252C%2520temperature%2520and%2520lighting%2520controls%252C%2520modern%2520UI%2520design%252C%2520clean%2520layout%252C%2520blue%2520and%2520white%2520theme%252C%2520high%2520quality%2520rendering&width=600&height=400&seq=project4&orientation=landscape"
+                alt="Smart Home System"
+                class="w-full h-full object-cover object-top transition-transform duration-500"
+              />
+              <div
+                class="project-overlay absolute inset-0 bg-primary bg-opacity-80 flex flex-col justify-center items-center p-6 opacity-0 transition-opacity duration-300"
+              >
+                <h4 class="text-white text-xl font-semibold mb-2">
+                  Smart Home System
+                </h4>
+                <p class="text-white text-center mb-4">
+                  IoT-based home automation system with voice control
+                </p>
+                <a
+                  href="#"
+                  class="bg-white text-primary px-4 py-2 !rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap"
+                  >View Project</a
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                Smart Home System
+              </h3>
+              <p class="text-gray-600 mb-4">
+                An IoT-based home automation system that allows users to control
+                home devices remotely.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >Arduino</span
+                >
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >Raspberry Pi</span
+                >
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >MQTT</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div
+            class="project-card rounded-lg overflow-hidden shadow-lg bg-white fade-in"
+          >
+            <div class="relative overflow-hidden h-60">
+              <img
+                src="https://readdy.ai/api/search-image?query=educational%2520platform%2520interface%2520with%2520online%2520courses%252C%2520learning%2520management%2520system%252C%2520video%2520lectures%252C%2520quiz%2520modules%252C%2520student%2520dashboard%252C%2520clean%2520modern%2520design%252C%2520blue%2520and%2520white%2520theme%252C%2520high%2520quality%2520rendering&width=600&height=400&seq=project5&orientation=landscape"
+                alt="E-Learning Platform"
+                class="w-full h-full object-cover object-top transition-transform duration-500"
+              />
+              <div
+                class="project-overlay absolute inset-0 bg-primary bg-opacity-80 flex flex-col justify-center items-center p-6 opacity-0 transition-opacity duration-300"
+              >
+                <h4 class="text-white text-xl font-semibold mb-2">
+                  E-Learning Platform
+                </h4>
+                <p class="text-white text-center mb-4">
+                  Online education platform with interactive courses and
+                  assessments
+                </p>
+                <a
+                  href="#"
+                  class="bg-white text-primary px-4 py-2 !rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap"
+                  >View Project</a
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                E-Learning Platform
+              </h3>
+              <p class="text-gray-600 mb-4">
+                A comprehensive online learning platform with course management,
+                video lectures, and assessment tools.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >Django</span
+                >
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >React</span
+                >
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >PostgreSQL</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div
+            class="project-card rounded-lg overflow-hidden shadow-lg bg-white fade-in"
+          >
+            <div class="relative overflow-hidden h-60">
+              <img
+                src="https://readdy.ai/api/search-image?query=facial%2520recognition%2520system%2520interface%252C%2520computer%2520vision%2520application%252C%2520face%2520detection%2520and%2520identification%252C%2520security%2520system%2520UI%252C%2520modern%2520design%252C%2520blue%2520and%2520white%2520theme%252C%2520high%2520quality%2520rendering%252C%2520professional%2520interface&width=600&height=400&seq=project6&orientation=landscape"
+                alt="Facial Recognition System"
+                class="w-full h-full object-cover object-top transition-transform duration-500"
+              />
+              <div
+                class="project-overlay absolute inset-0 bg-primary bg-opacity-80 flex flex-col justify-center items-center p-6 opacity-0 transition-opacity duration-300"
+              >
+                <h4 class="text-white text-xl font-semibold mb-2">
+                  Facial Recognition System
+                </h4>
+                <p class="text-white text-center mb-4">
+                  AI-powered facial recognition for security applications
+                </p>
+                <a
+                  href="#"
+                  class="bg-white text-primary px-4 py-2 !rounded-button font-medium hover:bg-gray-100 transition-colors whitespace-nowrap"
+                  >View Project</a
+                >
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                Facial Recognition System
+              </h3>
+              <p class="text-gray-600 mb-4">
+                An AI-powered facial recognition system for security and
+                attendance tracking applications.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >Python</span
+                >
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >OpenCV</span
+                >
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                  >TensorFlow</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12 fade-in">
+          <a
+            href="#"
+            class="inline-flex items-center gap-2 text-primary hover:text-blue-700 font-medium"
+          >
+            View All Projects <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-6 fade-in"
+        >
+          My Skills
+        </h2>
+        <p class="text-gray-600 text-center max-w-2xl mx-auto mb-16 fade-in">
+          Here are the technical skills I've developed through my education and
+          projects.
+        </p>
+
+        <!-- Skills Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <!-- Programming Languages -->
+          <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+            <div
+              class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="ri-code-s-slash-line text-primary ri-2x"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-center text-gray-900 mb-6">
+              Programming Languages
+            </h3>
+
+            <div class="space-y-6">
+              <div class="skill-card">
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-medium text-gray-800">Python</span>
+                  <span class="text-sm text-gray-600">90%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 90%"></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-medium text-gray-800">JavaScript</span>
+                  <span class="text-sm text-gray-600">85%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 85%"></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-medium text-gray-800">Java</span>
+                  <span class="text-sm text-gray-600">80%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 80%"></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-medium text-gray-800">C++</span>
+                  <span class="text-sm text-gray-600">75%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 75%"></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-medium text-gray-800">SQL</span>
+                  <span class="text-sm text-gray-600">85%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Frameworks & Libraries -->
+          <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+            <div
+              class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="ri-stack-line text-primary ri-2x"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-center text-gray-900 mb-6">
+              Frameworks & Libraries
+            </h3>
+
+            <div class="space-y-6">
+              <div class="skill-card">
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-medium text-gray-800">React</span>
+                  <span class="text-sm text-gray-600">85%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 85%"></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-medium text-gray-800">Django</span>
+                  <span class="text-sm text-gray-600">80%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 80%"></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-medium text-gray-800">TensorFlow</span>
+                  <span class="text-sm text-gray-600">75%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 75%"></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-medium text-gray-800">Node.js</span>
+                  <span class="text-sm text-gray-600">80%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 80%"></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-medium text-gray-800">Flutter</span>
+                  <span class="text-sm text-gray-600">70%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 70%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tools & Technologies -->
+          <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+            <div
+              class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="ri-tools-line text-primary ri-2x"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-center text-gray-900 mb-6">
+              Tools & Technologies
+            </h3>
+
+            <div class="space-y-6">
+              <div class="skill-card">
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-medium text-gray-800">Git & GitHub</span>
+                  <span class="text-sm text-gray-600">90%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 90%"></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-medium text-gray-800">Docker</span>
+                  <span class="text-sm text-gray-600">75%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 75%"></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-medium text-gray-800">AWS</span>
+                  <span class="text-sm text-gray-600">70%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 70%"></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-medium text-gray-800">CI/CD</span>
+                  <span class="text-sm text-gray-600">80%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 80%"></div>
+                </div>
+              </div>
+
+              <div class="skill-card">
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-medium text-gray-800">Linux</span>
+                  <span class="text-sm text-gray-600">85%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-bar-fill" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Skills -->
+        <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+          <h3 class="text-xl font-semibold text-center text-gray-900 mb-8">
+            Other Skills
+          </h3>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="skill-card flex flex-col items-center">
+              <div
+                class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-3"
+              >
+                <i class="ri-database-2-line text-primary ri-xl"></i>
+              </div>
+              <span class="text-gray-800 font-medium text-center"
+                >Database Design</span
+              >
+            </div>
+
+            <div class="skill-card flex flex-col items-center">
+              <div
+                class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-3"
+              >
+                <i class="ri-layout-line text-primary ri-xl"></i>
+              </div>
+              <span class="text-gray-800 font-medium text-center"
+                >UI/UX Design</span
+              >
+            </div>
+
+            <div class="skill-card flex flex-col items-center">
+              <div
+                class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-3"
+              >
+                <i class="ri-test-tube-line text-primary ri-xl"></i>
+              </div>
+              <span class="text-gray-800 font-medium text-center"
+                >Software Testing</span
+              >
+            </div>
+
+            <div class="skill-card flex flex-col items-center">
+              <div
+                class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-3"
+              >
+                <i class="ri-secure-payment-line text-primary ri-xl"></i>
+              </div>
+              <span class="text-gray-800 font-medium text-center"
+                >Cybersecurity</span
+              >
+            </div>
+
+            <div class="skill-card flex flex-col items-center">
+              <div
+                class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-3"
+              >
+                <i class="ri-cloud-line text-primary ri-xl"></i>
+              </div>
+              <span class="text-gray-800 font-medium text-center"
+                >Cloud Computing</span
+              >
+            </div>
+
+            <div class="skill-card flex flex-col items-center">
+              <div
+                class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-3"
+              >
+                <i class="ri-terminal-box-line text-primary ri-xl"></i>
+              </div>
+              <span class="text-gray-800 font-medium text-center">DevOps</span>
+            </div>
+
+            <div class="skill-card flex flex-col items-center">
+              <div
+                class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-3"
+              >
+                <i class="ri-bar-chart-box-line text-primary ri-xl"></i>
+              </div>
+              <span class="text-gray-800 font-medium text-center"
+                >Data Analysis</span
+              >
+            </div>
+
+            <div class="skill-card flex flex-col items-center">
+              <div
+                class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-3"
+              >
+                <i class="ri-team-line text-primary ri-xl"></i>
+              </div>
+              <span class="text-gray-800 font-medium text-center"
+                >Project Management</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-6 fade-in"
+        >
+          Get In Touch
+        </h2>
+        <p class="text-gray-600 text-center max-w-2xl mx-auto mb-16 fade-in">
+          Feel free to contact me for any project inquiries or just to say
+          hello. I'm always open to discussing new projects, creative ideas or
+          opportunities to be part of your vision.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+          <!-- Contact Form -->
+          <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">
+              Send Me a Message
+            </h3>
+
+            <form id="contact-form" class="space-y-6">
+              <div>
+                <label for="name" class="block text-gray-700 font-medium mb-2"
+                  >Your Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="contact-input w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:border-primary transition-colors"
+                  placeholder="John Doe"
+                  required
+                />
+              </div>
+
+              <div>
+                <label for="email" class="block text-gray-700 font-medium mb-2"
+                  >Your Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="contact-input w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:border-primary transition-colors"
+                  placeholder="john@example.com"
+                  required
+                />
+              </div>
+
+              <div>
+                <label
+                  for="subject"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Subject</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  class="contact-input w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:border-primary transition-colors"
+                  placeholder="Project Inquiry"
+                  required
+                />
+              </div>
+
+              <div>
+                <label
+                  for="message"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  class="contact-input w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:border-primary transition-colors"
+                  placeholder="Your message here..."
+                  required
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-blue-600 transition-colors whitespace-nowrap w-full"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="fade-in">
+            <div class="bg-white p-8 rounded-lg shadow-lg mb-8">
+              <h3 class="text-2xl font-semibold text-gray-900 mb-6">
+                Contact Information
+              </h3>
+
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div
+                    class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mr-4"
+                  >
+                    <i class="ri-mail-line text-primary ri-lg"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">Email</h4>
+                    <a
+                      href="mailto:jordan.messinga@gmail.com"
+                      class="text-primary hover:text-blue-700"
+                      >jmessnga@gmail.com</a
+                    >
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div
+                    class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mr-4"
+                  >
+                    <i class="ri-phone-line text-primary ri-lg"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">Phone</h4>
+                    <p class="text-gray-700">+237 699 245 936</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div
+                    class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full mr-4"
+                  >
+                    <i class="ri-map-pin-line text-primary ri-lg"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-900">Location</h4>
+                    <p class="text-gray-700">Yaoundé, Cameroon</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+              <h3 class="text-2xl font-semibold text-gray-900 mb-6">
+                Connect With Me
+              </h3>
+
+              <div class="flex justify-center space-x-6">
+                <a
+                  href="https://github.com/JordanMessinga"
+                  class="social-icon w-12 h-12 flex items-center justify-center bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200"
+                >
+                  <i class="ri-github-fill ri-lg"></i>
+                </a>
+                <a
+                  href="#"
+                  class="social-icon w-12 h-12 flex items-center justify-center bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200"
+                >
+                  <i class="ri-linkedin-fill ri-lg"></i>
+                </a>
+                <a
+                  href="https://x.com/JMessinga43665"
+                  class="social-icon w-12 h-12 flex items-center justify-center bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200"
+                >
+                  <i class="ri-twitter-fill ri-lg"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/wordsbyjordan011/"
+                  class="social-icon w-12 h-12 flex items-center justify-center bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200"
+                >
+                  <i class="ri-instagram-fill ri-lg"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div class="md:col-span-2">
+            <h3 class="text-2xl font-bold mb-4 name-title">
+              MESSINGA JEAN JORDAN NOE
+            </h3>
+            <p class="text-gray-400 mb-6 max-w-md">
+              Computer Science Engineering student passionate about creating
+              innovative technology solutions and constantly learning new
+              skills.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="https://github.com/JordanMessinga"
+                 ù$$$$.??
+                 %£ ¨MP°0OOIV9 HBYH%
+                 ^. ?MP
+                 M/¨P . 
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="ri-github-fill ri-lg"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="ri-linkedin-fill ri-lg"></i>
+              </a>
+              <a
+                href="https://x.com/JMessinga43665"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="ri-twitter-fill ri-lg"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/wordsbyjordan011/"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <i class="ri-instagram-fill ri-lg"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#home"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#projects"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#skills"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Skills</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Contact</h4>
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2">
+                <i class="ri-mail-line"></i>
+                <a
+                  href="mailto:jmessnga@gmail.com"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >jmessnga@gmail.com</a
+                >
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="ri-phone-line"></i>
+                <span class="text-gray-400">+237 699 245 936</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="ri-map-pin-line"></i>
+                <span class="text-gray-400">Yaoundé, Cameroon</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-500 text-sm mb-4 md:mb-0">
+            © 2025 MESSINGA JEAN JORDAN NOE. All rights reserved.
+          </p>
+
+          <a
+            href="#home"
+            class="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 transition-colors"
+          >
+            <i class="ri-arrow-up-line"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script id="mobile-menu-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+
+          // Toggle icon between menu and close
+          const icon = mobileMenuButton.querySelector("i");
+          if (icon.classList.contains("ri-menu-line")) {
+            icon.classList.remove("ri-menu-line");
+            icon.classList.add("ri-close-line");
+          } else {
+            icon.classList.remove("ri-close-line");
+            icon.classList.add("ri-menu-line");
+          }
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll("a");
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.add("hidden");
+            const icon = mobileMenuButton.querySelector("i");
+            icon.classList.remove("ri-close-line");
+            icon.classList.add("ri-menu-line");
+          });
+        });
+      });
+    </script>
+
+    <script id="scroll-animation-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        // Scroll animations
+        const fadeElements = document.querySelectorAll(".fade-in");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.1 },
+        );
+
+        fadeElements.forEach((element) => {
+          observer.observe(element);
+        });
+
+        // Active navigation link based on scroll position
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        window.addEventListener("scroll", () => {
+          let current = "";
+
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+
+            if (pageYOffset >= sectionTop - sectionHeight / 3) {
+              current = section.getAttribute("id");
+            }
+          });
+
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${current}`) {
+              link.classList.add("active");
+            }
+          });
+        });
+      });
+    </script>
+
+    <script id="project-filter-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll(".project-categories button");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // Remove active class from all buttons
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+
+            // Add active class to clicked button
+            this.classList.add("active");
+
+            // Filter logic would go here in a real implementation
+            // For this demo, we're just showing the active state
+          });
+        });
+      });
+    </script>
+
+    <script id="contact-form-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const contactForm = document.getElementById("contact-form");
+
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Simple form validation
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const subject = document.getElementById("subject").value;
+          const message = document.getElementById("message").value;
+
+          if (name && email && subject && message) {
+            // In a real implementation, this would send the form data
+            alert("Thank you for your message! I will get back to you soon.");
+            contactForm.reset();
+          } else {
+            alert("Please fill in all fields.");
+          }
+        });
+      });
+    </script>
+
+    <script id="skills-animation-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        // Animate progress bars when they come into view
+        const progressBars = document.querySelectorAll(".progress-bar-fill");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const width = entry.target.style.width;
+                entry.target.style.width = "0";
+
+                setTimeout(() => {
+                  entry.target.style.width = width;
+                }, 100);
+
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 },
+        );
+
+        progressBars.forEach((bar) => {
+          observer.observe(bar);
+        });
+      });
+    </script>
+  </body>
+</html>
