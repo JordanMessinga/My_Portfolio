@@ -1038,7 +1038,7 @@
                   id="name"
                   name="name"
                   class="contact-input w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:border-primary transition-colors"
-                  placeholder="John Doe"
+                  placeholder="Mbarga Junior"
                   required
                 />
               </div>
@@ -1052,7 +1052,7 @@
                   id="email"
                   name="email"
                   class="contact-input w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary focus:ring-opacity-50 focus:border-primary transition-colors"
-                  placeholder="john@example.com"
+                  placeholder="MbargaJunior@example.com"
                   required
                 />
               </div>
@@ -1461,6 +1461,37 @@
           observer.observe(bar);
         });
       });
+
     </script>
+
+
+
+
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const backToTop = document.getElementById("back-to-top");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.remove("hidden");
+      } else {
+        backToTop.classList.add("hidden");
+      }
+    });
+  });
+</script>
+
+//button
+
+    <a 
+  href="#home"
+  id="back-to-top"
+  class="fixed bottom-6 right-6 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-blue-600 transition-colors z-50 hidden"
+>
+  <i class="ri-arrow-up-line ri-lg"></i>
+</a>
+
+
+
   </body>
 </html>
